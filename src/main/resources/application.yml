@@ -1,0 +1,77 @@
+server:
+  port: 7070
+  compression:
+    min-response-size: 1
+    enabled: true
+
+spring:
+  application:
+    name: wow-api
+  profiles:
+    active: local # default profile
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  sleuth:
+    rxjava.schedulers.hook.enabled: false
+    enabled: true
+    sampler:
+      percentage: 1.0
+  zipkin:
+    enabled: false
+
+# logging config
+logging:
+  config: classpath:logback-spring.xml
+  file: ${spring.application.name}
+
+# actuator 설정
+management:
+  endpoints:
+    web:
+      base-path: /servicemanager
+
+# restTemplate 설정.
+joongna.web-config:
+  rest-template:
+    connect-timeout: 3000
+    read-timeout: 5000
+  rest-template-map:
+    sample:
+      connect-timeout: 5000
+      read-timeout: 10000
+
+---
+spring:
+  profiles: local
+
+wow:
+  datasource:
+    master:
+      driver-class-name: org.mariadb.jdbc.Driver
+      url: jdbc:mariadb://dragonfly14.synology.me:3306/wow?useSSL=false&useUnicode=true&allowMultiQueries=true&characterEncoding=UTF-8&autoReconnect=true
+      username: tauren
+      password: eowkdrnsxkdnfps
+    slave:
+      driver-class-name: org.mariadb.jdbc.Driver
+      url: jdbc:mariadb://dragonfly14.synology.me:3306/wow?useSSL=false&useUnicode=true&allowMultiQueries=true&characterEncoding=UTF-8&autoReconnect=true
+      username: tauren
+      password: eowkdrnsxkdnfps
+
+---
+spring:
+  profiles: dev
+
+wow:
+  datasource:
+    master:
+      driver-class-name: org.mariadb.jdbc.Driver
+      url: jdbc:mariadb://dragonfly14.synology.me:3306/wow?useSSL=false&useUnicode=true&allowMultiQueries=true&characterEncoding=UTF-8&autoReconnect=true
+      username: tauren
+      password: eowkdrnsxkdnfps
+    slave:
+      driver-class-name: org.mariadb.jdbc.Driver
+      url: jdbc:mariadb://dragonfly14.synology.me:3306/wow?useSSL=false&useUnicode=true&allowMultiQueries=true&characterEncoding=UTF-8&autoReconnect=true
+      username: tauren
+      password: eowkdrnsxkdnfps

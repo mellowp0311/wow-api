@@ -1,0 +1,84 @@
+{
+  "groups": [
+    {
+      "name": "joongna",
+      "type": "com.wow.api.config.property.JnDomainProperties",
+      "sourceType": "com.wow.api.config.property.JnDomainProperties"
+    },
+    {
+      "name": "secure-config",
+      "type": "com.wow.api.config.property.JnSecureConfigProperties",
+      "sourceType": "com.wow.api.config.property.JnSecureConfigProperties"
+    },
+    {
+      "name": "wow.datasource.master",
+      "type": "com.wow.api.config.property.DatabaseProperties",
+      "sourceType": "com.wow.api.config.MasterMyBatisConfig",
+      "sourceMethod": "slaveDatabaseProperties()"
+    },
+    {
+      "name": "wow.datasource.slave",
+      "type": "com.wow.api.config.property.DatabaseProperties",
+      "sourceType": "com.wow.api.config.SlaveMyBatisConfig",
+      "sourceMethod": "slaveDatabaseProperties()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "joongna.domain",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.wow.api.config.property.JnDomainProperties"
+    },
+    {
+      "name": "joongna.service-url",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.wow.api.config.property.JnDomainProperties"
+    },
+    {
+      "name": "secure-config.allowed-deeplink-domains",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.wow.api.config.property.JnSecureConfigProperties"
+    },
+    {
+      "name": "wow.datasource.master.driver-class-name",
+      "type": "java.lang.String",
+      "sourceType": "com.wow.api.config.property.DatabaseProperties"
+    },
+    {
+      "name": "wow.datasource.master.password",
+      "type": "java.lang.String",
+      "sourceType": "com.wow.api.config.property.DatabaseProperties"
+    },
+    {
+      "name": "wow.datasource.master.url",
+      "type": "java.lang.String",
+      "sourceType": "com.wow.api.config.property.DatabaseProperties"
+    },
+    {
+      "name": "wow.datasource.master.username",
+      "type": "java.lang.String",
+      "sourceType": "com.wow.api.config.property.DatabaseProperties"
+    },
+    {
+      "name": "wow.datasource.slave.driver-class-name",
+      "type": "java.lang.String",
+      "sourceType": "com.wow.api.config.property.DatabaseProperties"
+    },
+    {
+      "name": "wow.datasource.slave.password",
+      "type": "java.lang.String",
+      "sourceType": "com.wow.api.config.property.DatabaseProperties"
+    },
+    {
+      "name": "wow.datasource.slave.url",
+      "type": "java.lang.String",
+      "sourceType": "com.wow.api.config.property.DatabaseProperties"
+    },
+    {
+      "name": "wow.datasource.slave.username",
+      "type": "java.lang.String",
+      "sourceType": "com.wow.api.config.property.DatabaseProperties"
+    }
+  ],
+  "hints": []
+}

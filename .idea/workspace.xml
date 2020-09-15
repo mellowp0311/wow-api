@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b9327a54-9b53-4b1f-95bd-3f4edad20399" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="wow-api" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="wow-api" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="wow-api" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1f1UanZGwGrkkaHyJowtJDhTtUo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/sqlMappers/user" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.3129176" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="show.unlinked.gradle.project.popup" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/firebase" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.wow.api.repository" />
+      <recent name="com.wow.api.model" />
+      <recent name="com.wow.api.service" />
+      <recent name="com.wow.api.controller" />
+      <recent name="com.wow.api.config.property" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/sqlMappers/user" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/wow/api/config" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.wow-api [war]">
+    <configuration name="wow-api [bootWar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootWar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="wow-api [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="wow-api [war]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="war" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="WowApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="wow-api.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wow.api.WowApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_wow-api" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="60598" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Remote" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="LOCAL" value="false" />
+      <deployment />
+      <server-settings>
+        <data>
+          <option name="targets">
+            <list>
+              <WatchedTargetModelImpl>
+                <option name="name" value="CONTEXT_XML" />
+                <name>CONTEXT_XML</name>
+              </WatchedTargetModelImpl>
+              <StagingTargetModelImpl>
+                <option name="name" value="STAGING" />
+                <name>STAGING</name>
+              </StagingTargetModelImpl>
+            </list>
+          </option>
+          <option name="transportHostId" />
+        </data>
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="TOMCAT_LOCALHOST_LOG_ID" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="60599" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.wow-api [bootWar]" />
+        <item itemvalue="Gradle.wow-api [war]" />
+        <item itemvalue="Gradle.wow-api [clean]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b9327a54-9b53-4b1f-95bd-3f4edad20399" name="Default Changelist" comment="" />
+      <created>1595385157974</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595385157974</updated>
+      <workItem from="1595385159596" duration="1397000" />
+      <workItem from="1595386614515" duration="10407000" />
+      <workItem from="1595488114910" duration="4018000" />
+      <workItem from="1595898862708" duration="7384000" />
+      <workItem from="1595928214678" duration="1240000" />
+      <workItem from="1595984618786" duration="6895000" />
+      <workItem from="1599110147053" duration="2795000" />
+      <workItem from="1599698078439" duration="14000" />
+      <workItem from="1600065963166" duration="1921000" />
+      <workItem from="1600069231903" duration="4136000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="613" y="353" width="1067" height="669" key="#Project_Structure" timestamp="1600074044540">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state x="880" y="353" key="#Project_Structure/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1595386565967" />
+    <state x="613" y="353" width="1067" height="669" key="#Project_Structure/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600074044540" />
+    <state x="744" y="350" width="1071" height="704" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596003866501">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state x="744" y="350" width="1071" height="704" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596003866501" />
+    <state x="841" y="620" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1595385496348">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state x="841" y="620" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1595385496348" />
+    <state x="1042" y="99" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1595902164436">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state x="1042" y="99" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1595902164436" />
+    <state x="1018" y="442" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595899176746">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state x="1018" y="442" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1595899176746" />
+    <state x="989" y="321" key="#wow-api_[bootWar]" timestamp="1600073949888">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state x="989" y="321" key="#wow-api_[bootWar]/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600073949888" />
+    <state width="2518" height="264" key="GridCell.Tab.0.bottom" timestamp="1600076561417">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state width="2518" height="389" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812019" />
+    <state width="1638" height="279" key="GridCell.Tab.0.bottom/0.23.1680.947@0.23.1680.947" timestamp="1599131172258" />
+    <state width="1878" height="267" key="GridCell.Tab.0.bottom/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837809" />
+    <state width="2518" height="264" key="GridCell.Tab.0.bottom/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600076561417" />
+    <state width="2518" height="264" key="GridCell.Tab.0.center" timestamp="1600076561416">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state width="2518" height="389" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812018" />
+    <state width="1638" height="279" key="GridCell.Tab.0.center/0.23.1680.947@0.23.1680.947" timestamp="1599131172258" />
+    <state width="1878" height="267" key="GridCell.Tab.0.center/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837808" />
+    <state width="2518" height="264" key="GridCell.Tab.0.center/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600076561416" />
+    <state width="2518" height="264" key="GridCell.Tab.0.left" timestamp="1600076561416">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state width="2518" height="389" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812018" />
+    <state width="1638" height="279" key="GridCell.Tab.0.left/0.23.1680.947@0.23.1680.947" timestamp="1599131172257" />
+    <state width="1878" height="267" key="GridCell.Tab.0.left/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837808" />
+    <state width="2518" height="264" key="GridCell.Tab.0.left/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600076561416" />
+    <state width="2518" height="264" key="GridCell.Tab.0.right" timestamp="1600076561416">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state width="2518" height="389" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812019" />
+    <state width="1638" height="279" key="GridCell.Tab.0.right/0.23.1680.947@0.23.1680.947" timestamp="1599131172258" />
+    <state width="1878" height="267" key="GridCell.Tab.0.right/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837809" />
+    <state width="2518" height="264" key="GridCell.Tab.0.right/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600076561416" />
+    <state width="2518" height="496" key="GridCell.Tab.1.bottom" timestamp="1600073795646">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state width="2518" height="389" key="GridCell.Tab.1.bottom/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812020" />
+    <state width="1638" height="279" key="GridCell.Tab.1.bottom/0.23.1680.947@0.23.1680.947" timestamp="1599131172259" />
+    <state width="1878" height="267" key="GridCell.Tab.1.bottom/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837811" />
+    <state width="2518" height="496" key="GridCell.Tab.1.bottom/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600073795646" />
+    <state width="2518" height="496" key="GridCell.Tab.1.center" timestamp="1600073795646">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state width="2518" height="389" key="GridCell.Tab.1.center/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812020" />
+    <state width="1638" height="279" key="GridCell.Tab.1.center/0.23.1680.947@0.23.1680.947" timestamp="1599131172258" />
+    <state width="1878" height="267" key="GridCell.Tab.1.center/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837810" />
+    <state width="2518" height="496" key="GridCell.Tab.1.center/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600073795646" />
+    <state width="2518" height="496" key="GridCell.Tab.1.left" timestamp="1600073795645">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state width="2518" height="389" key="GridCell.Tab.1.left/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812019" />
+    <state width="1638" height="279" key="GridCell.Tab.1.left/0.23.1680.947@0.23.1680.947" timestamp="1599131172258" />
+    <state width="1878" height="267" key="GridCell.Tab.1.left/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837810" />
+    <state width="2518" height="496" key="GridCell.Tab.1.left/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600073795645" />
+    <state width="2518" height="496" key="GridCell.Tab.1.right" timestamp="1600073795646">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state width="2518" height="389" key="GridCell.Tab.1.right/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812020" />
+    <state width="1638" height="279" key="GridCell.Tab.1.right/0.23.1680.947@0.23.1680.947" timestamp="1599131172259" />
+    <state width="1878" height="267" key="GridCell.Tab.1.right/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837811" />
+    <state width="2518" height="496" key="GridCell.Tab.1.right/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600073795646" />
+    <state x="789" y="327" key="SettingsEditor" timestamp="1600073728999">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state x="789" y="327" key="SettingsEditor/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600073728999" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1600067276577">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1595900546897" />
+    <state width="500" height="445" key="SwitcherDM/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600067276577" />
+    <state x="679" y="166" width="935" height="766" key="find.popup" timestamp="1600076168991">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state x="679" y="166" width="934" height="765" key="find.popup/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596001393486" />
+    <state x="509" y="127" width="701" height="558" key="find.popup/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599698089224" />
+    <state x="679" y="166" width="935" height="766" key="find.popup/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600076168991" />
+    <state x="945" y="326" width="894" height="678" key="search.everywhere.popup" timestamp="1600073556372">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state x="945" y="326" width="670" height="676" key="search.everywhere.popup/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1595394850178" />
+    <state x="709" y="244" width="670" height="494" key="search.everywhere.popup/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599111726683" />
+    <state x="945" y="326" width="894" height="678" key="search.everywhere.popup/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600073556372" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/wow/api/model/RaidSchedule.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

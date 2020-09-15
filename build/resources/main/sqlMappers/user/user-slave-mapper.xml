@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wow.api.repository.UserSlaveRepository">
+
+
+    <!-- 사용자 계정 조회 -->
+    <select id="selectUserAccount" parameterType="com.wow.api.model.User" resultType="com.wow.api.model.User">
+        SELECT u.user_id
+          FROM user u
+         WHERE u.user_id = #{userId}
+           AND u.user_password = #{userPassword}
+    </select>
+
+
+    <!-- 사용자 계정 케릭터 목록 조회 -->
+    <select id="selectUserCharacterList" parameterType="long" resultType="com.wow.api.model.Character">
+        SELECT uc.character_seq,
+               uc.user_seq,
+               uc.server_code,
+               sv.detail_name as server_code_name,
+               uc.tribe_code,
+               tb.detail_name as tribe_code_name,
+               uc.character_name,
+               uc.character_job,
+               job.detail_name as character_job_name,
+               uc.character_position,
+               pi.detail_name as character_position_name,
+               ep1.detail_name as first_expertise,
+               ep2.detail_name as second_expertise,
+               uc.guild_seq,
+               g.guild_name
+          FROM user u
+         INNER JOIN user_character uc ON u.user_seq = uc.user_seq
+          LEFT JOIN guild g on uc.guild_seq = g.guild_seq
+          LEFT JOIN common_code sv on sv.group_code = 'wow_server' AND uc.server_code = sv.detail_code
+          LEFT JOIN common_code tb on tb.group_code = 'wow_tribe' AND uc.tribe_code = tb.detail_code
+          LEFT JOIN common_code job on job.group_code = 'character_job' AND uc.character_job = job.detail_code
+          LEFT JOIN common_code pi on pi.group_code = CONCAT(uc.character_job, '_position') AND uc.character_position = pi.detail_code
+          LEFT JOIN common_code ep1 on ep1.group_code = 'expertise' AND uc.first_expertise = ep1.detail_code
+          LEFT JOIN common_code ep2 on ep2.group_code = 'expertise' AND uc.second_expertise = ep2.detail_code
+         WHERE u.user_seq = #{userSeq}
+    </select>
+
+
+</mapper>

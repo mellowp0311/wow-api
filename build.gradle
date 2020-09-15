@@ -1,0 +1,105 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'com.gradle.build-scan' version '2.0.2'
+    id 'org.springframework.boot' version '2.1.9.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+}
+
+group = 'com.wow.api'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+war {
+    enabled = true
+}
+wrapper {
+    distributionType = Wrapper.DistributionType.ALL
+    distributionUrl = "http://services.gradle.org/distributions/gradle-5.6.3-all.zip"
+}
+
+bootRun {
+    systemProperty 'spring.profiles.active', System.properties['spring.profiles.active']
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    set('springCloudVersion', "Greenwich.SR3")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
+    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+
+    // mybatis config
+    implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1"
+
+    compile 'org.mariadb.jdbc:mariadb-java-client:2.5.3'
+
+    // https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
+    compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.5.1'
+
+    // https://mvnrepository.com/artifact/org.modelmapper/modelmapper
+    compile group: 'org.modelmapper', name: 'modelmapper', version: '2.3.8'
+
+    // https://mvnrepository.com/artifact/com.linkedin.urls/url-detector
+    compile group: 'com.linkedin.urls', name: 'url-detector', version: '0.1.17'
+
+
+    /**
+     * swagger config
+     * swagger-annotations, swagger-models 는 springfox-swagger2 에 의존적이나 에러가 발생하기 때문에 임의로 1.5.21 버전으로 버전 업데이트 해줌.
+     */
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+    compile group: 'io.swagger', name: 'swagger-annotations', version: '1.5.21'
+    compile group: 'io.swagger', name: 'swagger-models', version: '1.5.21'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+
+    implementation 'org.apache.commons:commons-lang3:3.9'
+
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.6'
+
+    // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    // https://mvnrepository.com/artifact/ch.qos.logback.contrib/logback-json-classic
+    implementation group: 'ch.qos.logback.contrib', name: 'logback-json-classic', version: '0.1.5'
+    // https://mvnrepository.com/artifact/ch.qos.logback.contrib/logback-jackson
+    implementation group: 'ch.qos.logback.contrib', name: 'logback-jackson', version: '0.1.5'
+
+    // https://mvnrepository.com/artifact/javax.el/javax.el-api
+    compile group: 'javax.el', name: 'javax.el-api', version: '3.0.0'
+
+    // feign client
+    compile 'org.springframework.cloud:spring-cloud-starter-openfeign:2.2.1.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.apache.velocity/velocity
+    compile group: 'org.apache.velocity', name: 'velocity', version: '1.6.2'
+
+    implementation 'io.jsonwebtoken:jjwt:0.9.0'
+
+}
