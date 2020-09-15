@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wow.api.repository.RaidSlaveRepository">
+
+
+    <select id="selectCurrentWeekRaidPeriod" resultType="com.wow.api.model.RaidPeriod">
+        SELECT rt.raid_code,
+               rt.raid_name,
+               DATE_FORMAT(rp.raid_start_date, '%Y-%m-%d') AS raid_start_date,
+               SUBSTR(_UTF8'일월화수목금토', DAYOFWEEK(rp.raid_start_date), 1) AS raid_start_day,
+               DATE_FORMAT(rp.raid_start_date, '%k') AS raid_start_time,
+               DATE_FORMAT(rp.raid_end_date, '%Y-%m-%d') AS raid_end_date,
+               SUBSTR(_UTF8'일월화수목금토', DAYOFWEEK(rp.raid_end_date), 1) AS raid_end_day,
+               DATE_FORMAT(rp.raid_end_date, '%k') AS raid_end_time,
+               rt.raid_max_cnt,
+               rt.raid_period
+          FROM raid_type rt
+          LEFT JOIN raid_period rp ON rt.raid_code = rp.raid_code AND NOW() BETWEEN raid_start_date AND raid_end_date
+         WHERE 1 = 1
+        ORDER BY rt.raid_sort
+    </select>
+
+
+    <select id="selectAddWeekRaidPeriod" parameterType="com.wow.api.model.RaidPeriod" resultType="com.wow.api.model.RaidPeriod">
+        SELECT rp.raid_code,
+               rt.raid_name,
+               DATE_FORMAT(rp.raid_start_date, '%Y-%m-%d') AS raid_start_date,
+               SUBSTR(_UTF8'일월화수목금토', DAYOFWEEK(rp.raid_start_date), 1) AS raid_start_day,
+               DATE_FORMAT(rp.raid_start_date, '%k') AS raid_start_time,
+               DATE_FORMAT(rp.raid_end_date, '%Y-%m-%d') AS raid_end_date,
+               SUBSTR(_UTF8'일월화수목금토', DAYOFWEEK(rp.raid_end_date), 1) AS raid_end_day,
+               DATE_FORMAT(rp.raid_end_date, '%k') AS raid_end_time,
+               rt.raid_max_cnt,
+               rt.raid_period
+          FROM (SELECT rp.raid_code,
+                       DATE_ADD(rp.raid_start_date, INTERVAL #{raidPeriod} DAY) raid_start_date,
+                       DATE_ADD(rp.raid_end_date, INTERVAL #{raidPeriod} DAY) raid_end_date
+                  FROM raid_period rp
+                 WHERE rp.raid_code = #{raidCode}
+                 ORDER BY raid_start_date DESC
+                 LIMIT 1 ) rp
+          LEFT JOIN raid_type rt ON rp.raid_code = rt.raid_code
+
+    </select>
+
+
+    <select id="selectCurrentWeekRaidCount" parameterType="map" resultType="int">
+        SELECT SUM(sch.cnt) as total_cnt
+        FROM (
+        <foreach collection="raidPeriods" item="period" separator="UNION ALL">
+           SELECT count(raid_schedule_seq) cnt
+             FROM raid_schedule
+            WHERE character_seq IN ( SELECT character_seq FROM user_character WHERE user_seq = #{userSeq} )
+              AND raid_code = #{period.raidCode}
+              AND raid_start_date BETWEEN #{period.raidStartDate} AND #{period.raidEndDate}
+        </foreach>
+        ) sch
+    </select>
+
+
+    <select id="selectUserCurrentWeekRaidParticipateList" parameterType="long" resultType="com.wow.api.model.RaidStatus">
+        SELECT dt.raid_code,
+               dt.raid_name,
+               dt.character_name,
+               job.detail_name as character_job_name,
+               IF(rs.raid_start_date IS NULL, 'N', 'Y') as raid_complete_yn,
+               rs.raid_title,
+               DATE_FORMAT(rs.raid_start_date, '%Y-%m-%d %k') AS raid_start_date
+          FROM (    SELECT uc.character_seq,
+                           uc.character_name,
+                           uc.character_job,
+                           raid.raid_code,
+                           raid.raid_name,
+                           raid.raid_start_date,
+                           raid.raid_end_date,
+                           raid.raid_sort
+                     FROM user_character uc, ( SELECT rt.raid_code,
+                                                      rt.raid_name,
+                                                      rp.raid_start_date,
+                                                      rp.raid_end_date,
+                                                      rt.raid_sort
+                                                 FROM raid_type rt
+                                                 LEFT JOIN raid_period rp ON rt.raid_code = rp.raid_code
+                                                       AND NOW() BETWEEN raid_start_date AND raid_end_date) raid
+                    WHERE uc.user_seq = #{userSeq}
+               ) dt
+        LEFT JOIN raid_schedule rs ON dt.character_seq = rs.character_seq AND dt.raid_code = rs.raid_code AND rs.raid_start_date BETWEEN dt.raid_start_date AND dt.raid_end_date
+        LEFT JOIN common_code job on job.group_code = 'character_job' AND dt.character_job = job.detail_code
+    </select>
+
+
+    <select id="selectCharacterCurrentWeekRaidParticipate" parameterType="map" resultType="com.wow.api.model.RaidStatus">
+        SELECT dt.raid_code,
+               dt.raid_name,
+               dt.character_name,
+               job.detail_name as character_job_name,
+               IF(rs.raid_start_date IS NULL, 'N', 'Y') as raid_complete_yn,
+               rs.raid_title,
+               DATE_FORMAT(rs.raid_start_date, '%Y-%m-%d %k') AS raid_start_date
+          FROM (    SELECT uc.character_seq,
+                           uc.character_name,
+                           uc.character_job,
+                           raid.raid_code,
+                           raid.raid_name,
+                           raid.raid_start_date,
+                           raid.raid_end_date,
+                           raid.raid_sort
+                     FROM user_character uc, ( SELECT rt.raid_code,
+                                                      rt.raid_name,
+                                                      rp.raid_start_date,
+                                                      rp.raid_end_date,
+                                                      rt.raid_sort
+                                                 FROM raid_type rt
+                                                 LEFT JOIN raid_period rp ON rt.raid_code = rp.raid_code
+                                                       AND NOW() BETWEEN raid_start_date AND raid_end_date) raid
+                    WHERE uc.character_seq = #{characterSeq}
+                      AND raid.raid_code = #{raidCode}
+               ) dt
+        LEFT JOIN raid_schedule rs ON dt.character_seq = rs.character_seq AND dt.raid_code = rs.raid_code AND rs.raid_start_date BETWEEN dt.raid_start_date AND dt.raid_end_date
+        LEFT JOIN common_code job on job.group_code = 'character_job' AND dt.character_job = job.detail_code
+    </select>
+
+
+</mapper>

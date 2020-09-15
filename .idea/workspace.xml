@@ -1,7 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9327a54-9b53-4b1f-95bd-3f4edad20399" name="Default Changelist" comment="" />
+    <list default="true" id="b9327a54-9b53-4b1f-95bd-3f4edad20399" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/exception/CustomException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/model/CharacterRate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/model/RaidPeriod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/model/RaidStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/model/common/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/repository/RaidSlaveRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sqlMappers/user-slave-mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.3/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.3/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.3/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.3/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.3/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.3/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.3/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/config/ExceptionAdvice.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/config/ExceptionAdvice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/constants/ErrorEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/constants/ErrorEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/constants/JnRedisKey.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/controller/RaidController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/controller/RaidController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/model/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/model/RaidSchedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/model/RaidSchedule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/model/User$UserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/model/User$UserBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/model/common/ResponseWrap.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/model/common/ResponseWrap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/repository/RaidMasterRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/repository/RaidMasterRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/service/MainService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/service/MainService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/service/RaidService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/service/RaidService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/wow/api/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/firebase/firebase-account-key.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/sqlMappers/user/raid-master-mapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/sqlMappers/user/user-slave-mapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/war/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wow/api/config/ExceptionAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/config/ExceptionAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wow/api/constants/ErrorEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/constants/ErrorEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wow/api/constants/JnHeaderKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/constants/JnHeaderKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wow/api/constants/JnRedisKey.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wow/api/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wow/api/controller/RaidController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/controller/RaidController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wow/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wow/api/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/model/MainDashBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wow/api/model/RaidSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/model/RaidSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wow/api/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wow/api/model/common/ResponseWrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/model/common/ResponseWrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wow/api/repository/RaidMasterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/repository/RaidMasterRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wow/api/service/MainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/service/MainService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wow/api/service/RaidService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/service/RaidService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wow/api/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wow/api/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/firebase/firebase-account-key.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sqlMappers/user/raid-master-mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sqlMappers/raid-master-mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sqlMappers/user/user-slave-mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sqlMappers/raid-slave-mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wow/api/init/AppVersionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wow/api/init/AppVersionTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,10 +115,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1f1UanZGwGrkkaHyJowtJDhTtUo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -69,31 +132,53 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/sqlMappers/user" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/sqlMappers" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3129176" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/firebase" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.wow.api.repository" />
-      <recent name="com.wow.api.model" />
-      <recent name="com.wow.api.service" />
-      <recent name="com.wow.api.controller" />
-      <recent name="com.wow.api.config.property" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/sqlMappers" />
       <recent name="$PROJECT_DIR$/src/main/resources/sqlMappers/user" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/java/com/wow/api/config" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.wow.api.exception" />
+      <recent name="com.wow.api.model.common" />
+      <recent name="com.wow.api.model" />
+      <recent name="com.wow.api.repository" />
+      <recent name="com.wow.api.service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/sqlMappers" />
+      <recent name="$PROJECT_DIR$/src/main/resources/firebase" />
+    </key>
   </component>
-  <component name="RunManager" selected="Gradle.wow-api [war]">
+  <component name="RunManager" selected="Spring Boot.WowApplication">
+    <configuration name="AppVersionTest.test_compare_to" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.wow.api.init.AppVersionTest.test_compare_to&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="wow-api [bootWar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -252,9 +337,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.wow-api [clean]" />
+        <item itemvalue="Gradle.AppVersionTest.test_compare_to" />
         <item itemvalue="Gradle.wow-api [bootWar]" />
         <item itemvalue="Gradle.wow-api [war]" />
-        <item itemvalue="Gradle.wow-api [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -290,6 +376,7 @@
       <workItem from="1599698078439" duration="14000" />
       <workItem from="1600065963166" duration="1921000" />
       <workItem from="1600069231903" duration="4136000" />
+      <workItem from="1600133678562" duration="21168000" />
     </task>
     <servers />
   </component>
@@ -297,15 +384,19 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="613" y="353" width="1067" height="669" key="#Project_Structure" timestamp="1600074044540">
+    <state x="613" y="353" width="1067" height="669" key="#Project_Structure" timestamp="1600147281234">
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
     <state x="880" y="353" key="#Project_Structure/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1595386565967" />
-    <state x="613" y="353" width="1067" height="669" key="#Project_Structure/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600074044540" />
+    <state x="613" y="353" width="1067" height="669" key="#Project_Structure/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600147281234" />
     <state x="744" y="350" width="1071" height="704" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596003866501">
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
     <state x="744" y="350" width="1071" height="704" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596003866501" />
+    <state x="968" y="423" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1600147480581">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state x="968" y="423" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600147480581" />
     <state x="841" y="620" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1595385496348">
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
@@ -322,83 +413,107 @@
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
     <state x="989" y="321" key="#wow-api_[bootWar]/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600073949888" />
-    <state width="2518" height="264" key="GridCell.Tab.0.bottom" timestamp="1600076561417">
+    <state x="820" y="290" key="CommitChangelistDialog2" timestamp="1600162513790">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state x="820" y="290" key="CommitChangelistDialog2/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600162513790" />
+    <state x="880" y="353" key="GrepConsoleSettings" timestamp="1600161689737">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state x="880" y="353" key="GrepConsoleSettings/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600161689737" />
+    <state width="2518" height="677" key="GridCell.Tab.0.bottom" timestamp="1600162100027">
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
     <state width="2518" height="389" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812019" />
     <state width="1638" height="279" key="GridCell.Tab.0.bottom/0.23.1680.947@0.23.1680.947" timestamp="1599131172258" />
     <state width="1878" height="267" key="GridCell.Tab.0.bottom/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837809" />
-    <state width="2518" height="264" key="GridCell.Tab.0.bottom/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600076561417" />
-    <state width="2518" height="264" key="GridCell.Tab.0.center" timestamp="1600076561416">
+    <state width="2518" height="677" key="GridCell.Tab.0.bottom/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600162100027" />
+    <state width="2518" height="677" key="GridCell.Tab.0.center" timestamp="1600162100026">
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
     <state width="2518" height="389" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812018" />
     <state width="1638" height="279" key="GridCell.Tab.0.center/0.23.1680.947@0.23.1680.947" timestamp="1599131172258" />
     <state width="1878" height="267" key="GridCell.Tab.0.center/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837808" />
-    <state width="2518" height="264" key="GridCell.Tab.0.center/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600076561416" />
-    <state width="2518" height="264" key="GridCell.Tab.0.left" timestamp="1600076561416">
+    <state width="2518" height="677" key="GridCell.Tab.0.center/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600162100026" />
+    <state width="2518" height="677" key="GridCell.Tab.0.left" timestamp="1600162100025">
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
     <state width="2518" height="389" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812018" />
     <state width="1638" height="279" key="GridCell.Tab.0.left/0.23.1680.947@0.23.1680.947" timestamp="1599131172257" />
     <state width="1878" height="267" key="GridCell.Tab.0.left/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837808" />
-    <state width="2518" height="264" key="GridCell.Tab.0.left/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600076561416" />
-    <state width="2518" height="264" key="GridCell.Tab.0.right" timestamp="1600076561416">
+    <state width="2518" height="677" key="GridCell.Tab.0.left/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600162100025" />
+    <state width="2518" height="677" key="GridCell.Tab.0.right" timestamp="1600162100027">
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
     <state width="2518" height="389" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812019" />
     <state width="1638" height="279" key="GridCell.Tab.0.right/0.23.1680.947@0.23.1680.947" timestamp="1599131172258" />
     <state width="1878" height="267" key="GridCell.Tab.0.right/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837809" />
-    <state width="2518" height="264" key="GridCell.Tab.0.right/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600076561416" />
-    <state width="2518" height="496" key="GridCell.Tab.1.bottom" timestamp="1600073795646">
+    <state width="2518" height="677" key="GridCell.Tab.0.right/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600162100027" />
+    <state width="2518" height="677" key="GridCell.Tab.1.bottom" timestamp="1600162092796">
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
     <state width="2518" height="389" key="GridCell.Tab.1.bottom/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812020" />
     <state width="1638" height="279" key="GridCell.Tab.1.bottom/0.23.1680.947@0.23.1680.947" timestamp="1599131172259" />
     <state width="1878" height="267" key="GridCell.Tab.1.bottom/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837811" />
-    <state width="2518" height="496" key="GridCell.Tab.1.bottom/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600073795646" />
-    <state width="2518" height="496" key="GridCell.Tab.1.center" timestamp="1600073795646">
+    <state width="2518" height="677" key="GridCell.Tab.1.bottom/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600162092796" />
+    <state width="2518" height="677" key="GridCell.Tab.1.center" timestamp="1600162092795">
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
     <state width="2518" height="389" key="GridCell.Tab.1.center/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812020" />
     <state width="1638" height="279" key="GridCell.Tab.1.center/0.23.1680.947@0.23.1680.947" timestamp="1599131172258" />
     <state width="1878" height="267" key="GridCell.Tab.1.center/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837810" />
-    <state width="2518" height="496" key="GridCell.Tab.1.center/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600073795646" />
-    <state width="2518" height="496" key="GridCell.Tab.1.left" timestamp="1600073795645">
+    <state width="2518" height="677" key="GridCell.Tab.1.center/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600162092795" />
+    <state width="2518" height="677" key="GridCell.Tab.1.left" timestamp="1600162092795">
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
     <state width="2518" height="389" key="GridCell.Tab.1.left/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812019" />
     <state width="1638" height="279" key="GridCell.Tab.1.left/0.23.1680.947@0.23.1680.947" timestamp="1599131172258" />
     <state width="1878" height="267" key="GridCell.Tab.1.left/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837810" />
-    <state width="2518" height="496" key="GridCell.Tab.1.left/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600073795645" />
-    <state width="2518" height="496" key="GridCell.Tab.1.right" timestamp="1600073795646">
+    <state width="2518" height="677" key="GridCell.Tab.1.left/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600162092795" />
+    <state width="2518" height="677" key="GridCell.Tab.1.right" timestamp="1600162092796">
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
     <state width="2518" height="389" key="GridCell.Tab.1.right/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596015812020" />
     <state width="1638" height="279" key="GridCell.Tab.1.right/0.23.1680.947@0.23.1680.947" timestamp="1599131172259" />
     <state width="1878" height="267" key="GridCell.Tab.1.right/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599110837811" />
-    <state width="2518" height="496" key="GridCell.Tab.1.right/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600073795646" />
+    <state width="2518" height="677" key="GridCell.Tab.1.right/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600162092796" />
+    <state width="2518" height="677" key="GridCell.Tab.2.bottom" timestamp="1600162044246">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state width="2518" height="677" key="GridCell.Tab.2.bottom/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600162044246" />
+    <state width="2518" height="677" key="GridCell.Tab.2.center" timestamp="1600162044245">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state width="2518" height="677" key="GridCell.Tab.2.center/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600162044245" />
+    <state width="2518" height="677" key="GridCell.Tab.2.left" timestamp="1600162044245">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state width="2518" height="677" key="GridCell.Tab.2.left/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600162044245" />
+    <state width="2518" height="677" key="GridCell.Tab.2.right" timestamp="1600162044246">
+      <screen x="0" y="23" width="2560" height="1330" />
+    </state>
+    <state width="2518" height="677" key="GridCell.Tab.2.right/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600162044246" />
     <state x="789" y="327" key="SettingsEditor" timestamp="1600073728999">
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
     <state x="789" y="327" key="SettingsEditor/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600073728999" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1600067276577">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1600160878697">
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
     <state width="500" height="445" key="SwitcherDM/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1595900546897" />
-    <state width="500" height="445" key="SwitcherDM/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600067276577" />
-    <state x="679" y="166" width="935" height="766" key="find.popup" timestamp="1600076168991">
+    <state width="500" height="445" key="SwitcherDM/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600160878697" />
+    <state x="679" y="166" width="935" height="766" key="find.popup" timestamp="1600161633066">
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
     <state x="679" y="166" width="934" height="765" key="find.popup/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1596001393486" />
     <state x="509" y="127" width="701" height="558" key="find.popup/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599698089224" />
-    <state x="679" y="166" width="935" height="766" key="find.popup/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600076168991" />
-    <state x="945" y="326" width="894" height="678" key="search.everywhere.popup" timestamp="1600073556372">
+    <state x="679" y="166" width="935" height="766" key="find.popup/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600161633066" />
+    <state x="945" y="326" width="894" height="678" key="search.everywhere.popup" timestamp="1600161889285">
       <screen x="0" y="23" width="2560" height="1330" />
     </state>
     <state x="945" y="326" width="670" height="676" key="search.everywhere.popup/-1920.23.1920.1057/0.23.2560.1330/2560.23.1680.1027@0.23.2560.1330" timestamp="1595394850178" />
     <state x="709" y="244" width="670" height="494" key="search.everywhere.popup/0.23.1920.970/1920.23.1680.1027@0.23.1920.970" timestamp="1599111726683" />
-    <state x="945" y="326" width="894" height="678" key="search.everywhere.popup/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600073556372" />
+    <state x="945" y="326" width="894" height="678" key="search.everywhere.popup/0.23.2560.1330/2560.23.1680.1027/-1920.23.1920.1057@0.23.2560.1330" timestamp="1600161889285" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

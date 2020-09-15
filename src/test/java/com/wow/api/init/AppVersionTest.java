@@ -2,25 +2,18 @@ package com.wow.api.init;
 
 import org.junit.Test;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-
-import static org.junit.Assert.assertEquals;
-
 public class AppVersionTest {
 
     @Test
     public void test_compare_to() {
 
-
-        LocalDateTime redis = LocalDateTime.of(2019,2,12,13,00,0);
-        LocalDateTime now1  = LocalDateTime.of(2019,2,12,13,00,10);
-        LocalDateTime now2  = LocalDateTime.of(2019,2,12,13,05,10);
-        LocalDateTime now3  = LocalDateTime.of(2019,2,12,13,30,0);
-
-        System.out.println(Duration.between(redis, now1).toMillis());
-        System.out.println(Duration.between(redis, now2).toMillis());
-        System.out.println(Duration.between(redis, now3).toMillis());
+        int total = 24;
+        int character_count = 22;
+        int character = 4;
+//        System.out.println(Math.round((count) * character) / character);
+        System.out.println( (total / character_count) * 100 );
+        System.out.println( (double) character_count / (double) total * 100 );
+        System.out.println( Math.round((double) character_count / (double) total * 100));
 
 
 

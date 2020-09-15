@@ -18,7 +18,7 @@ public class RaidSchedule {
     private Long characterSeq;
 
     @ApiModelProperty(value = "던전 코드")
-    private String dungeonCode;
+    private String raidCode;
 
     @ApiModelProperty(value = "공격대 타이틀")
     private String raidTitle;

@@ -20,6 +20,9 @@ spring:
       percentage: 1.0
   zipkin:
     enabled: false
+  datasource:
+    hikari:
+      max-lifetime: 580000
 
 # logging config
 logging:
