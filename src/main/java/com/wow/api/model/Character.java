@@ -56,4 +56,7 @@ public class Character {
     @ApiModelProperty(value = "두번째 전문기술")
     private String secondExpertise;
 
+    @ApiModelProperty(value = "사용여부")
+    private String useYn;
+
 }

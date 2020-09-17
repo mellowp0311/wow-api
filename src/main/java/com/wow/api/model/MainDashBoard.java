@@ -11,7 +11,7 @@ import java.util.List;
 
 @Data
 @Builder
-@ApiModel(description = "유저 정보")
+@ApiModel(description = "대시보드 정보")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MainDashBoard {
 

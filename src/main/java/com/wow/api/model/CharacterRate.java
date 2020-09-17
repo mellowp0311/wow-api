@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Data
-@ApiModel(description = "케릭터 정보")
+@ApiModel(description = "케릭별 레이드 달성률 정보")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CharacterRate {
 

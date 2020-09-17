@@ -16,6 +16,24 @@ public enum ErrorEnum {
             "아이디 및 패스워드를 확인하여 주십시오.",
             "Please check your ID and password. userId: {}"
     ),
+    ALREADY_REGISTERED_ID (
+            1000,
+            true,
+            "이미 회원가입된 사용자 아이디 입니다.",
+            "This is a user ID that has already been registered. userId: {}"
+    ),
+    USER_ID_IS_SHORT (
+            1000,
+            true,
+            "계정 아이디는 6글자 이상으로 설정해 주세요.",
+            "Please set the account ID to at least 6 characters. userId: {}"
+    ),
+    USER_PASSWORD_IS_SHORT(
+            1000,
+            true,
+            "계정 패스워드는 6글자 이상으로 설정해 주세요.",
+            "Please set the account password to at least 6 characters. userId: {}"
+    ),
     RAID_ALREADY_PARTICIPATE (
             3001,
             true,

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/main")
-@Api(description = "메인 API 제공", tags = { "메인(홈) API - MainController" })
+@Api(description = "메인 API 제공", tags = { "메인 API - MainController" })
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class MainController {
 

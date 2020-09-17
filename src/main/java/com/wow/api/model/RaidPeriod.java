@@ -2,11 +2,12 @@ package com.wow.api.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModel;
+import lombok.Builder;
 import lombok.Data;
 
 
 @Data
-@ApiModel(description = "금주 레이드 기간")
+@ApiModel(description = "레이드 기간 정보")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RaidPeriod {
 
@@ -20,6 +21,15 @@ public class RaidPeriod {
     private String raidEndTime;
     private int raidMaxCnt;
     private int raidPeriod;
+
+    public RaidPeriod(){}
+
+    @Builder
+    public RaidPeriod(String code, String start, String end){
+        this.raidCode = code;
+        this.raidStartDate = start;
+        this.raidEndDate = end;
+    }
 
     public void refreshCurrentWeekRaidData(RaidPeriod raidPeriod) {
         this.raidStartDate = raidPeriod.getRaidStartDate();

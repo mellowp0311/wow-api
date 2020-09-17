@@ -18,6 +18,10 @@ configurations {
 war {
     enabled = true
 }
+bootWar {
+    archiveFileName = 'wow.war'
+}
+
 wrapper {
     distributionType = Wrapper.DistributionType.ALL
     distributionUrl = "http://services.gradle.org/distributions/gradle-5.6.3-all.zip"

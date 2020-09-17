@@ -2,18 +2,24 @@ package com.wow.api.init;
 
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+
 public class AppVersionTest {
 
     @Test
     public void test_compare_to() {
 
-        int total = 24;
-        int character_count = 22;
-        int character = 4;
-//        System.out.println(Math.round((count) * character) / character);
-        System.out.println( (total / character_count) * 100 );
-        System.out.println( (double) character_count / (double) total * 100 );
-        System.out.println( Math.round((double) character_count / (double) total * 100));
+        LocalDateTime sevenStartDt = LocalDateTime.of(2020, 9, 10, 10, 0,0);
+        LocalDateTime maxDate = LocalDateTime.of(2021, 12, 31, 23, 59,59);
+        System.out.println(sevenStartDt.isBefore(maxDate));
+
+        int count = 0;
+        while (sevenStartDt.isBefore(maxDate)){
+            count++;
+            sevenStartDt = sevenStartDt.plusDays(7);
+            System.out.println(sevenStartDt);
+        }
+        System.out.println(count);
 
 
 

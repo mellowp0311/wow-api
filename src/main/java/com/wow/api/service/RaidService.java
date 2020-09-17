@@ -11,7 +11,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static com.wow.api.constants.ErrorEnum.RAID_ALREADY_PARTICIPATE;
@@ -26,7 +29,24 @@ public class RaidService {
 
 
     /**
-     * [공격대] 레이드 일정 등록
+     * 레이드 일정 조회
+     *
+     * @param userSeq
+     * @param characterSeq
+     * @param raidCode
+     * @return
+     */
+    public List<RaidSchedule> searchRaidSchedule(Long userSeq, Long characterSeq, String raidCode, String searchDate) {
+        if(StringUtils.isEmpty(searchDate)){
+            searchDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        }
+        return raidSlaveRepository.selectRaidSchedule(userSeq, characterSeq, raidCode, searchDate);
+    }
+
+
+
+    /**
+     * 레이드 일정 등록
      *
      * @param raidSchedule
      */
@@ -48,7 +68,7 @@ public class RaidService {
     }
 
     /**
-     * [공격대] 레이드 일정 수정
+     * 레이드 일정 수정
      *
      * @param raidSchedule
      */
@@ -64,7 +84,7 @@ public class RaidService {
     }
 
     /**
-     * [공격대] 레이드 일정 삭제
+     * 레이드 일정 삭제
      *
      * @param raidScheduleSeq
      */
@@ -131,7 +151,7 @@ public class RaidService {
     }
 
     /**
-     * [레이드] 케릭터 금주 레이드 이력 조회
+     * [메인] 케릭터 금주 레이드 이력 조회
      *
      * @param raidCode
      * @param characterSeq
@@ -140,4 +160,6 @@ public class RaidService {
     public RaidStatus searchCharacterCurrentWeekRaidParticipate(String raidCode, Long characterSeq) {
         return raidSlaveRepository.selectCharacterCurrentWeekRaidParticipate(raidCode, characterSeq);
     }
+
+
 }

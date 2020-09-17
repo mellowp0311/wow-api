@@ -6,7 +6,7 @@ import lombok.Data;
 
 
 @Data
-@ApiModel(description = "금주 레이드 기간")
+@ApiModel(description = "금주 레이드 상태 정보")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RaidStatus {
 

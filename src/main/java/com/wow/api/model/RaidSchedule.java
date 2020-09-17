@@ -7,7 +7,7 @@ import lombok.Data;
 
 
 @Data
-@ApiModel(description = "공격대 일정 정보")
+@ApiModel(description = "레이드 일정 정보")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RaidSchedule {
 
@@ -41,8 +41,11 @@ public class RaidSchedule {
     @ApiModelProperty(value = "메모")
     private String memo;
 
-    @ApiModelProperty(value = "수익금")
-    private int proceeds;
+    @ApiModelProperty(value = "수익")
+    private Integer profit;
+
+    @ApiModelProperty(value = "지출")
+    private Integer expense;
 
     @ApiModelProperty(value = "수정 일시")
     private String updDate;

@@ -1,7 +1,6 @@
 package com.wow.api.model.common;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.google.common.collect.ImmutableMap;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
@@ -20,10 +19,7 @@ public class ResponseWrap<T> {
     /**
      * Default constructor
      */
-    public ResponseWrap() {
-
-    }
-
+    public ResponseWrap() {}
     public ResponseWrap(T data) {
         this.data = data;
     }
@@ -31,13 +27,6 @@ public class ResponseWrap<T> {
 
     /**
      * 에러 스펙
-     *
-     * @param code
-     * @param message
-     * @param status
-     * @param title
-     * @param detail
-     * @param uri
      */
     public ResponseWrap(int code, String message, int status, String title, String detail, String uri) {
         // 기존 meta 에 추가된 에러 스펙 유지.
@@ -52,11 +41,5 @@ public class ResponseWrap<T> {
         error.put("detail" , detail);
         error.put("path"   , uri);
     }
-
-
-    private Map<String, Object> getDefaultMeta(){
-        return new ImmutableMap.Builder<String, Object>().put("code", 200).put("message", "success").build();
-    }
-
 
 }

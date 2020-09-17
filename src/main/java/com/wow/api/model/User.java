@@ -21,8 +21,14 @@ public class User {
     @ApiModelProperty(value = "계정 패스워드")
     private String userPassword;
 
+    @ApiModelProperty(value = "계정 사용자 명")
+    private String userName;
+
     @ApiModelProperty(value = "계정 상태")
     private String userStatus;
+
+    @ApiModelProperty(value = "마지막 로그인 일시")
+    private String lastLoginDate;
 
     public User(){}
 
