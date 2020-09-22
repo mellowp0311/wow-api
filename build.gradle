@@ -19,7 +19,7 @@ war {
     enabled = true
 }
 bootWar {
-    archiveFileName = 'wow.war'
+    archiveFileName = 'api.war'
 }
 
 wrapper {
