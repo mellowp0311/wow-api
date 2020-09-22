@@ -9,7 +9,7 @@
     <springProperty name="SPRING_APPLICATION_NAME" source="spring.application.name"/>
 
     <springProfile name="local">
-        <property name="LOG_PATH" value="${LOG_PATH:-${user.home}/logs}"/>
+        <property name="LOG_PATH" value="${LOG_PATH:-${user.home}/logs/wow}"/>
     </springProfile>
     <springProfile name="dev">
         <property name="LOG_PATH" value="${LOG_PATH:-${CATALINA_BASE}/logs}"/>

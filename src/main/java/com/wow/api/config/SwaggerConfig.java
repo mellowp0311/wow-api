@@ -12,6 +12,8 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Collections;
 
 @Configuration
@@ -20,19 +22,32 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 
     @Bean
     public Docket api() {
+        String host = getMyIp().contains("192.168") ? "localhost:8080" : "dragonfly14.synology.me:7071";
         return new Docket(DocumentationType.SWAGGER_2)
-            .select()
-            .apis(RequestHandlerSelectors.basePackage("com.wow.api"))
-            .paths(PathSelectors.any())
-            .build()
-            .useDefaultResponseMessages(false)
-            .apiInfo(apiInfo());
+                .host(host)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.wow.api"))
+                .paths(PathSelectors.any())
+                .build()
+                .useDefaultResponseMessages(false)
+                .apiInfo(apiInfo());
+    }
+
+    private String getMyIp(){
+        String localIp;
+        try {
+            InetAddress local = InetAddress.getLocalHost();
+            localIp = local.getHostAddress();
+        } catch (UnknownHostException e1) {
+            localIp = "UnknownHostException";
+        }
+        return localIp;
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfo("wow-api", "아 할것도 없고 재미도 없고 심심해서 만드는 대장군타우렌 길드 레이드 일정표", "v1.0.0", "",
-            new Contact("엔트&우취", "", ""),
-            "License of API", "API license URL", Collections.emptyList());
+        return new ApiInfo(
+                "wow-api","아 할것도 없고 재미도 없고 심심해서 만드는 대장군타우렌 길드 레이드 일정표", "v1.0.0","",
+            new Contact("엔트&우취", "",""),"License of API", "API license URL", Collections.emptyList());
     }
 
     @Override
