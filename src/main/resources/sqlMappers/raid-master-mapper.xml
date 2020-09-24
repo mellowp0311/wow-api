@@ -12,10 +12,10 @@
             raid_invite_character,
             raid_invite_date,
             raid_start_date,
-            <if test="raidClearDate != null and raidClearDate != ''">
             raid_clear_date,
-            </if>
             memo,
+            profit,
+            expense,
             upd_date,
             reg_date)
         VALUES (
@@ -26,10 +26,10 @@
             #{raidInviteCharacter},
             #{raidInviteDate},
             #{raidStartDate},
-            <if test="raidClearDate != null and raidClearDate != ''">
             #{raidClearDate},
-            </if>
             #{memo},
+            #{profit},
+            #{expense},
             NOW(),
             NOW()
         )

@@ -5,6 +5,7 @@ import com.wow.api.model.RaidPeriod;
 import com.wow.api.model.RaidSchedule;
 import com.wow.api.model.RaidStatus;
 import com.wow.api.model.common.Result;
+import com.wow.api.model.dashboard.RaidCharacter;
 import com.wow.api.repository.RaidMasterRepository;
 import com.wow.api.repository.RaidSlaveRepository;
 import lombok.RequiredArgsConstructor;
@@ -159,6 +160,15 @@ public class RaidService {
      */
     public RaidStatus searchCharacterCurrentWeekRaidParticipate(String raidCode, Long characterSeq) {
         return raidSlaveRepository.selectCharacterCurrentWeekRaidParticipate(raidCode, characterSeq);
+    }
+
+    /**
+     * [웹] 케릭별 레이드 참가현황 조회
+     *
+     * @param userSeq
+     */
+    public List<RaidCharacter> searchRaidParticipateByCharacter(Long userSeq) {
+        return raidSlaveRepository.selectRaidParticipateByCharacter(userSeq);
     }
 
 

@@ -4,6 +4,7 @@ import com.wow.api.config.annotation.SlaveConnection;
 import com.wow.api.model.RaidPeriod;
 import com.wow.api.model.RaidSchedule;
 import com.wow.api.model.RaidStatus;
+import com.wow.api.model.dashboard.RaidCharacter;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -29,5 +30,5 @@ public interface RaidSlaveRepository {
 
     RaidStatus selectCharacterCurrentWeekRaidParticipate(@Param("raidCode") String raidCode, @Param("characterSeq") Long characterSeq);
 
-
+    List<RaidCharacter> selectRaidParticipateByCharacter(Long userSeq);
 }

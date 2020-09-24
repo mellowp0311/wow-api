@@ -1,5 +1,6 @@
 package com.wow.api.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -16,13 +17,14 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Collections;
 
+@Slf4j
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig extends WebMvcConfigurationSupport {
 
     @Bean
     public Docket api() {
-        String host = getMyIp().contains("192.168") ? "localhost:8080" : "dragonfly14.synology.me:7071";
+        String host = getMyIp().contains("192.168") ? "localhost:7070" : "dragonfly14.synology.me:7071";
         return new Docket(DocumentationType.SWAGGER_2)
                 .host(host)
                 .select()

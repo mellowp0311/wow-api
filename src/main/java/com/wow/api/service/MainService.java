@@ -1,14 +1,15 @@
 package com.wow.api.service;
 
 import com.wow.api.model.Character;
-import com.wow.api.model.MainDashBoard;
-import com.wow.api.model.RaidPeriod;
-import com.wow.api.model.RaidStatus;
+import com.wow.api.model.*;
+import com.wow.api.model.dashboard.RaidCharacter;
+import com.wow.api.model.dashboard.RaidType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -34,20 +35,32 @@ public class MainService {
     @Transactional
     public MainDashBoard searchMainDashboard(Long userSeq) {
         // 01. 레이드 기간정보 조회
-        List<RaidPeriod> raidPeriods = raidService.selectCurrentWeekRaidPeriod();
-        for( RaidPeriod period : raidPeriods){
-            if(Objects.nonNull(period.getRaidStartDate())) continue;
-            // 레이드가 초기화 되었을 경우, 갱신 처리 (배치처리 X)
-            RaidPeriod raidPeriod = raidService.selectAddWeekRaidPeriod(period);
-            raidService.addCurrentWeekRaidPeriod(raidPeriod);
-            period.refreshCurrentWeekRaidData(raidPeriod);
-        }
+        List<RaidPeriod> raidPeriods = this.searchCurrentWeekRaidPeriod();
         // 02. 레이드 달성률 계산
         List<Character> characters = userService.searchUserCharacterList(userSeq);
         double canParticipate = raidPeriods.size() * characters.size();
         double participate = raidService.searchCurrentWeekRaidCount(userSeq, raidPeriods);
         int rate = (int) Math.round(participate / canParticipate * 100);
         return MainDashBoard.builder().achievementRate(rate).raidPeriods(raidPeriods).build();
+    }
+
+    /**
+     * 레이드 기간 정보 조회
+     *
+     * @return
+     */
+    private List<RaidPeriod> searchCurrentWeekRaidPeriod(){
+        List<RaidPeriod> raidPeriods = raidService.selectCurrentWeekRaidPeriod();
+        for( RaidPeriod period : raidPeriods){
+            if(StringUtils.isEmpty(period.getRaidStartDate())){
+                // 레이드가 초기화 되었을 경우, 갱신 처리 (배치처리 X)
+                RaidPeriod raidPeriod = raidService.selectAddWeekRaidPeriod(period);
+                raidService.addCurrentWeekRaidPeriod(raidPeriod);
+                period.refreshCurrentWeekRaidData(raidPeriod);
+            }
+            period.makeBetweenDayList();
+        }
+        return raidPeriods;
     }
 
 
@@ -64,6 +77,46 @@ public class MainService {
         return characterList.stream().collect(Collectors.groupingBy(RaidStatus::getRaidCode));
     }
 
+
+    /**
+     * [웹] 대시보드 현황 정보 조회
+     *
+     * @param userSeq
+     * @return
+     */
+    public WebDashboard searchWebMainDashboard(Long userSeq) {
+        // 금주 레이드 일정
+        RaidType raidType = new RaidType();
+        List<RaidPeriod> raidPeriods = this.searchCurrentWeekRaidPeriod();
+        for( RaidPeriod raidPeriod: raidPeriods){
+            if(raidPeriod.getRaidCode().equals("AR")) raidType.setAr(raidPeriod);
+            if(raidPeriod.getRaidCode().equals("AT")) raidType.setAt(raidPeriod);
+            if(raidPeriod.getRaidCode().equals("OX")) raidType.setOx(raidPeriod);
+        }
+        // 사용자 케릭터 목록
+        List<Character> characterList = userService.searchUserCharacterList(userSeq);
+        // 사용자 케릭터 레이드 참가 현황
+        List<RaidCharacter> raidCharacterList = raidService.searchRaidParticipateByCharacter(userSeq);
+        for(RaidCharacter raidCharacter : raidCharacterList){
+            int profit = 0;
+            profit += Objects.nonNull(raidCharacter.getAt()) ? raidCharacter.getAt().getProfit() : 0;
+            profit += Objects.nonNull(raidCharacter.getAr()) ? raidCharacter.getAr().getProfit() : 0;
+            profit += Objects.nonNull(raidCharacter.getMc()) ? raidCharacter.getMc().getProfit() : 0;
+            profit += Objects.nonNull(raidCharacter.getBl()) ? raidCharacter.getBl().getProfit() : 0;
+            profit += Objects.nonNull(raidCharacter.getOx()) ? raidCharacter.getOx().getProfit() : 0;
+            profit += Objects.nonNull(raidCharacter.getZg()) ? raidCharacter.getZg().getProfit() : 0;
+            raidCharacter.setTotalProfit(profit);
+            int expense = 0;
+            expense += Objects.nonNull(raidCharacter.getAt()) ? raidCharacter.getAt().getExpense() : 0;
+            expense += Objects.nonNull(raidCharacter.getAr()) ? raidCharacter.getAr().getExpense() : 0;
+            expense += Objects.nonNull(raidCharacter.getMc()) ? raidCharacter.getMc().getExpense() : 0;
+            expense += Objects.nonNull(raidCharacter.getBl()) ? raidCharacter.getBl().getExpense() : 0;
+            expense += Objects.nonNull(raidCharacter.getOx()) ? raidCharacter.getOx().getExpense() : 0;
+            expense += Objects.nonNull(raidCharacter.getZg()) ? raidCharacter.getZg().getExpense() : 0;
+            raidCharacter.setTotalExpense(expense);
+        }
+        return WebDashboard.builder().raidType(raidType).characterList(characterList).raidParticipateList(raidCharacterList).build();
+    }
 
 
 }
