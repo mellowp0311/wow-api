@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wow.api.repository.RaidSlaveRepository">
+
+
+    <select id="selectRaidSchedule" parameterType="map" resultType="com.wow.api.model.RaidSchedule">
+      SELECT rs.raid_schedule_seq,
+             rs.raid_code,
+             rs.character_seq,
+             rs.raid_title,
+             rs.raid_captain_character,
+             rs.raid_invite_character,
+             DATE_FORMAT(rs.raid_invite_date, '%Y-%m-%d %k:%i:%s') raid_invite_date,
+             DATE_FORMAT(rs.raid_start_date, '%Y-%m-%d %k:%i:%s') raid_start_date,
+             DATE_FORMAT(rs.raid_clear_date, '%Y-%m-%d %k:%i:%s') raid_clear_date,
+             rs.memo,
+             rs.profit,
+             rs.expense
+        FROM raid_schedule rs, (SELECT rt.raid_code,
+                                       rt.raid_name,
+                                       rp.raid_start_date,
+                                       rp.raid_end_date,
+                                       rt.raid_sort
+                                  FROM raid_type rt
+                                  LEFT JOIN raid_period rp
+                                         ON rt.raid_code = rp.raid_code
+                                        AND #{searchDate} BETWEEN raid_start_date AND raid_end_date
+                                  WHERE 1 =1
+                                  <if test="raidCode != null and raidCode != '' ">
+                                      AND rt.raid_code = #{raidCode}
+                                  </if>
+                                  ) raid
+       WHERE 1 = 1
+         AND rs.raid_start_date between raid.raid_start_date and raid.raid_end_date
+         AND rs.raid_code = raid.raid_code
+        <if test="userSeq != null and userSeq != '' ">
+            AND rs.character_seq IN ( SELECT character_seq FROM user_character WHERE user_seq = #{userSeq})
+        </if>
+        <if test="characterSeq != null and characterSeq != '' ">
+            AND rs.character_seq = #{characterSeq}
+        </if>
+    </select>
+
+
+    <select id="selectCurrentWeekRaidPeriod" resultType="com.wow.api.model.RaidPeriod">
+        SELECT rt.raid_code,
+               rt.raid_name,
+               DATE_FORMAT(rp.raid_start_date, '%Y-%m-%d') AS raid_start_date,
+               SUBSTR(_UTF8'일월화수목금토', DAYOFWEEK(rp.raid_start_date), 1) AS raid_start_day,
+               DATE_FORMAT(rp.raid_start_date, '%k') AS raid_start_time,
+               DATE_FORMAT(rp.raid_end_date, '%Y-%m-%d') AS raid_end_date,
+               SUBSTR(_UTF8'일월화수목금토', DAYOFWEEK(rp.raid_end_date), 1) AS raid_end_day,
+               DATE_FORMAT(rp.raid_end_date, '%k') AS raid_end_time,
+               rt.raid_max_cnt,
+               rt.raid_period
+          FROM raid_type rt
+          LEFT JOIN raid_period rp ON rt.raid_code = rp.raid_code AND NOW() BETWEEN raid_start_date AND raid_end_date
+         WHERE 1 = 1
+        ORDER BY rt.raid_sort
+    </select>
+
+
+    <select id="selectAddWeekRaidPeriod" parameterType="com.wow.api.model.RaidPeriod" resultType="com.wow.api.model.RaidPeriod">
+        SELECT rp.raid_code,
+               rt.raid_name,
+               DATE_FORMAT(rp.raid_start_date, '%Y-%m-%d') AS raid_start_date,
+               SUBSTR(_UTF8'일월화수목금토', DAYOFWEEK(rp.raid_start_date), 1) AS raid_start_day,
+               DATE_FORMAT(rp.raid_start_date, '%k') AS raid_start_time,
+               DATE_FORMAT(rp.raid_end_date, '%Y-%m-%d') AS raid_end_date,
+               SUBSTR(_UTF8'일월화수목금토', DAYOFWEEK(rp.raid_end_date), 1) AS raid_end_day,
+               DATE_FORMAT(rp.raid_end_date, '%k') AS raid_end_time,
+               rt.raid_max_cnt,
+               rt.raid_period
+          FROM (SELECT rp.raid_code,
+                       DATE_ADD(rp.raid_start_date, INTERVAL #{raidPeriod} DAY) raid_start_date,
+                       DATE_ADD(rp.raid_end_date, INTERVAL #{raidPeriod} DAY) raid_end_date
+                  FROM raid_period rp
+                 WHERE rp.raid_code = #{raidCode}
+                 ORDER BY raid_start_date DESC
+                 LIMIT 1 ) rp
+          LEFT JOIN raid_type rt ON rp.raid_code = rt.raid_code
+
+    </select>
+
+
+    <select id="selectCurrentWeekRaidCount" parameterType="map" resultType="int">
+        SELECT SUM(sch.cnt) as total_cnt
+        FROM (
+        <foreach collection="raidPeriods" item="period" separator="UNION ALL">
+           SELECT count(raid_schedule_seq) cnt
+             FROM raid_schedule
+            WHERE character_seq IN ( SELECT character_seq FROM user_character WHERE user_seq = #{userSeq} )
+              AND raid_code = #{period.raidCode}
+              AND raid_start_date BETWEEN #{period.raidStartDate} AND #{period.raidEndDate}
+        </foreach>
+        ) sch
+    </select>
+
+
+    <select id="selectUserCurrentWeekRaidParticipateList" parameterType="long" resultType="com.wow.api.model.RaidStatus">
+        SELECT dt.raid_code,
+               dt.raid_name,
+               dt.character_name,
+               job.detail_name as character_job_name,
+               IF(rs.raid_start_date IS NULL, 'N', 'Y') as raid_complete_yn,
+               rs.raid_title,
+               DATE_FORMAT(rs.raid_start_date, '%Y-%m-%d %k') AS raid_start_date
+          FROM (    SELECT uc.character_seq,
+                           uc.character_name,
+                           uc.character_job,
+                           raid.raid_code,
+                           raid.raid_name,
+                           raid.raid_start_date,
+                           raid.raid_end_date,
+                           raid.raid_sort
+                     FROM user_character uc, ( SELECT rt.raid_code,
+                                                      rt.raid_name,
+                                                      rp.raid_start_date,
+                                                      rp.raid_end_date,
+                                                      rt.raid_sort
+                                                 FROM raid_type rt
+                                                 LEFT JOIN raid_period rp ON rt.raid_code = rp.raid_code
+                                                       AND NOW() BETWEEN raid_start_date AND raid_end_date) raid
+                    WHERE uc.user_seq = #{userSeq}
+               ) dt
+        LEFT JOIN raid_schedule rs ON dt.character_seq = rs.character_seq AND dt.raid_code = rs.raid_code AND rs.raid_start_date BETWEEN dt.raid_start_date AND dt.raid_end_date
+        LEFT JOIN common_code job on job.group_code = 'character_job' AND dt.character_job = job.detail_code
+    </select>
+
+
+    <select id="selectCharacterCurrentWeekRaidParticipate" parameterType="map" resultType="com.wow.api.model.RaidStatus">
+        SELECT dt.raid_code,
+               dt.raid_name,
+               dt.character_name,
+               job.detail_name as character_job_name,
+               IF(rs.raid_start_date IS NULL, 'N', 'Y') as raid_complete_yn,
+               rs.raid_title,
+               DATE_FORMAT(rs.raid_start_date, '%Y-%m-%d %k') AS raid_start_date
+          FROM (    SELECT uc.character_seq,
+                           uc.character_name,
+                           uc.character_job,
+                           raid.raid_code,
+                           raid.raid_name,
+                           raid.raid_start_date,
+                           raid.raid_end_date,
+                           raid.raid_sort
+                     FROM user_character uc, ( SELECT rt.raid_code,
+                                                      rt.raid_name,
+                                                      rp.raid_start_date,
+                                                      rp.raid_end_date,
+                                                      rt.raid_sort
+                                                 FROM raid_type rt
+                                                 LEFT JOIN raid_period rp ON rt.raid_code = rp.raid_code
+                                                       AND NOW() BETWEEN raid_start_date AND raid_end_date) raid
+                    WHERE uc.character_seq = #{characterSeq}
+                      AND raid.raid_code = #{raidCode}
+               ) dt
+        LEFT JOIN raid_schedule rs ON dt.character_seq = rs.character_seq AND dt.raid_code = rs.raid_code AND rs.raid_start_date BETWEEN dt.raid_start_date AND dt.raid_end_date
+        LEFT JOIN common_code job on job.group_code = 'character_job' AND dt.character_job = job.detail_code
+    </select>
+
+
+    <select id="selectRaidParticipateByCharacter" parameterType="long" resultType="com.wow.api.model.dashboard.RaidCharacter">
+        SELECT uc.user_seq,
+               uc.character_seq,
+               uc.character_name,
+               job.detail_name as character_job_name,
+
+               ar.raid_code as 'ar.raid_code',
+               ar.raid_captain_character as 'ar.raid_captain_character',
+               DATE_FORMAT(ar.raid_start_date, '%m.%d %H:%i') as 'ar.raid_start_date',
+               ar.raid_title as 'ar.raid_title',
+               IF(ar.raid_code is null, null, IFNULL(ar.profit, 0)) as 'ar.profit',
+               IF(ar.raid_code is null, null, IFNULL(ar.expense, 0)) as 'ar.expense',
+               ar.memo as 'ar.memo',
+
+               at.raid_code as 'at.raid_code',
+               at.raid_captain_character as 'at.raid_captain_character',
+               DATE_FORMAT(at.raid_start_date, '%m.%d %H:%i') as 'at.raid_start_date',
+               at.raid_title as 'at.raid_title',
+               IF(at.raid_code is null, null, IFNULL(at.profit, 0)) as 'at.profit',
+               IF(at.raid_code is null, null, IFNULL(at.expense, 0)) as 'at.expense',
+               at.memo as 'at.memo',
+
+               bl.raid_code as 'bl.raid_code',
+               bl.raid_captain_character as 'bl.raid_captain_character',
+               DATE_FORMAT(bl.raid_start_date, '%m.%d %H:%i') as 'bl.raid_start_date',
+               bl.raid_title as 'bl.raid_title',
+               IF(bl.raid_code is null, null, IFNULL(bl.profit, 0)) as 'bl.profit',
+               IF(bl.raid_code is null, null, IFNULL(bl.expense, 0)) as 'bl.expense',
+               bl.memo as 'bl.memo',
+
+               mc.raid_code as 'mc.raid_code',
+               mc.raid_captain_character as 'mc.raid_captain_character',
+               DATE_FORMAT(mc.raid_start_date, '%m.%d %H:%i') as 'mc.raid_start_date',
+               mc.raid_title as 'mc.raid_title',
+               IF(mc.raid_code is null, null, IFNULL(mc.profit, 0)) as 'mc.profit',
+               IF(mc.raid_code is null, null, IFNULL(mc.expense, 0)) as 'mc.expense',
+               mc.memo as 'mc.memo',
+
+               ox.raid_code as 'ox.raid_code',
+               ox.raid_captain_character as 'ox.raid_captain_character',
+               DATE_FORMAT(ox.raid_start_date, '%m.%d %H:%i') as 'ox.raid_start_date',
+               ox.raid_title as 'ox.raid_title',
+               IF(ox.raid_code is null, null, IFNULL(ox.profit, 0)) as 'ox.profit',
+               IF(ox.raid_code is null, null, IFNULL(ox.expense, 0)) as 'ox.expense',
+               ox.memo as 'ox.memo',
+
+               zg.raid_code as 'zg.raid_code',
+               zg.raid_captain_character as 'zg.raid_captain_character',
+               DATE_FORMAT(zg.raid_start_date, '%m.%d %H:%i') as 'zg.raid_start_date',
+               zg.raid_title as 'zg.raid_title',
+               IF(zg.raid_code is null, null, IFNULL(zg.profit, 0)) as 'zg.profit',
+               IF(zg.raid_code is null, null, IFNULL(zg.expense, 0)) as 'zg.expense',
+               zg.memo as 'zg.memo'
+          FROM user_character uc
+          LEFT JOIN raid_schedule_view ar ON uc.character_seq = ar.character_seq AND ar.raid_code = 'AR'
+          LEFT JOIN raid_schedule_view at ON uc.character_seq = at.character_seq AND at.raid_code = 'AT'
+          LEFT JOIN raid_schedule_view bl ON uc.character_seq = bl.character_seq AND bl.raid_code = 'BL'
+          LEFT JOIN raid_schedule_view mc ON uc.character_seq = mc.character_seq AND mc.raid_code = 'MC'
+          LEFT JOIN raid_schedule_view ox ON uc.character_seq = ox.character_seq AND ox.raid_code = 'OX'
+          LEFT JOIN raid_schedule_view zg ON uc.character_seq = zg.character_seq AND zg.raid_code = 'ZG'
+          LEFT JOIN common_code job on job.group_code = 'character_job' AND uc.character_job = job.detail_code
+         WHERE uc.user_seq = #{userSeq}
+    </select>
+
+
+
+
+</mapper>
