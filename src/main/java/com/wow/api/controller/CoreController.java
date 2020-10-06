@@ -8,7 +8,10 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -42,13 +45,6 @@ public class CoreController {
     public ResponseWrap<Code> addRaidInitPerDay(@PathVariable(value = "groupCode") String groupCode,
                                                 @PathVariable(value = "detailCode") String detailCode){
         return new ResponseWrap(coreService.searchDetailCode(groupCode, detailCode));
-    }
-
-    @GetMapping("/raid/addRaidInitPerDay")
-    @ApiOperation(value = "[접근X] 3년치 레이드 기간정보 등록")
-    public void addRaidInitPerDay(@RequestHeader("key") String key){
-        if(authKey.equals(key)) coreService.addRaidInitPerDay();
-        else log.error("authKey fail !!");
     }
 
 
