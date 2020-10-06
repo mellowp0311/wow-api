@@ -16,6 +16,12 @@ public enum ErrorEnum {
             "아이디 및 패스워드를 확인하여 주십시오.",
             "Please check your ID and password. userId: {}"
     ),
+    USER_INSERT_FAIL (
+            1000,
+            true,
+            "아이디 및 패스워드를 확인하여 주십시오.",
+            "Please check your ID and password. userId: {}"
+    ),
     ALREADY_REGISTERED_ID (
             1000,
             true,

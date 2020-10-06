@@ -44,7 +44,6 @@ public class CoreController {
         return new ResponseWrap(coreService.searchDetailCode(groupCode, detailCode));
     }
 
-
     @GetMapping("/raid/addRaidInitPerDay")
     @ApiOperation(value = "[접근X] 3년치 레이드 기간정보 등록")
     public void addRaidInitPerDay(@RequestHeader("key") String key){

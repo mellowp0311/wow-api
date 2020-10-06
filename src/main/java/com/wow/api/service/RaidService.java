@@ -55,18 +55,11 @@ public class RaidService {
     public Result addRaidSchedule(RaidSchedule raidSchedule) {
         // 레이드 이력 조회 (금주)
         RaidStatus raidStatus = this.searchCharacterCurrentWeekRaidParticipate(raidSchedule.getRaidCode(), raidSchedule.getCharacterSeq());
-        Result.ResultBuilder builder = Result.builder();
         if("Y".equals(raidStatus.getRaidCompleteYn())){
             throw new CustomException(RAID_ALREADY_PARTICIPATE, raidSchedule.getRaidCode(), raidSchedule.getCharacterSeq());
-        } else {
-            if(raidMasterRepository.insertRaidSchedule(raidSchedule) > 0){
-                builder.code(200).message("레이드 일정이 등록되었습니다.");
-            } else {
-                builder.code(500).message("등록에 실패 하였습니다.");
-                log.error("[ addRaidSchedule ] fail parameter: {}", raidSchedule);
-            }
         }
-        return builder.build();
+        raidMasterRepository.insertRaidSchedule(raidSchedule);
+        return Result.builder().code(200).message("레이드 일정이 등록되었습니다.").build();
     }
 
     /**
@@ -75,14 +68,8 @@ public class RaidService {
      * @param raidSchedule
      */
     public Result modifyRaidSchedule(RaidSchedule raidSchedule) {
-        Result.ResultBuilder builder = Result.builder();
-        if(raidMasterRepository.updateRaidSchedule(raidSchedule) > 0){
-            builder.code(200).message("레이드 일정이 수정되었습니다.");
-        } else {
-            builder.code(500).message("수정에 실패 하였습니다.");
-            log.error("[ modifyRaidSchedule ] fail parameter: {}", raidSchedule);
-        }
-        return builder.build();
+        raidMasterRepository.updateRaidSchedule(raidSchedule);
+        return Result.builder().code(200).message("레이드 일정이 수정되었습니다.").build();
     }
 
     /**
@@ -91,14 +78,8 @@ public class RaidService {
      * @param raidScheduleSeq
      */
     public Result removeRaidSchedule(Long raidScheduleSeq) {
-        Result.ResultBuilder builder = Result.builder();
-        if(raidMasterRepository.deleteRaidSchedule(raidScheduleSeq) > 0){
-            builder.code(200).message("레이드 일정이 취소되었습니다.");
-        } else {
-            builder.code(500).message("취소에 실패 하였습니다.");
-            log.error("[ removeRaidSchedule ] fail parameter: {}", raidScheduleSeq);
-        }
-        return builder.build();
+        raidMasterRepository.deleteRaidSchedule(raidScheduleSeq);
+        return Result.builder().code(200).message("레이드 일정이 취소되었습니다.").build();
     }
 
 

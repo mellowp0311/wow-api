@@ -30,10 +30,20 @@ public class ExceptionAdvice {
 
 
     @ExceptionHandler(CustomException.class)
-    public ResponseEntity<Object> handlerProductForbiddenException(CustomException ex, HttpServletRequest req) {
+    public ResponseEntity<Object> handlerCustomException(CustomException ex, HttpServletRequest req) {
         return new ResponseEntity<>(
-                makeResponseWrap(ex.getErrorEnum(), ex.toString(), ex.getArguments(), req.getRequestURI(), req.getQueryString()),
+                makeResponseWrap(ex.getErrorEnum(), ex.getClass().getName(), ex.getArguments(), req.getRequestURI(), req.getQueryString()),
                 getDefaultHttpHeaders(), unprocessable
+        );
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<Object> handlerException(Exception ex, HttpServletRequest req) {
+        HttpStatus httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+        log.error(commonLogFormatter, 500, ex.getClass().getName(), ex.getLocalizedMessage(), req.getRequestURI(), req.getQueryString());
+        return new ResponseEntity<>(
+                new ResponseWrap<>(httpStatus, ex.getClass().getName(), ex.getLocalizedMessage(), req.getRequestURI()),
+                getDefaultHttpHeaders(), httpStatus
         );
     }
 
